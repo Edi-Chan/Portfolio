@@ -14,9 +14,10 @@
 </head>
 
 <body>
+
   <!-- Intro Logo Animation -->
   <div id="intro-logo" class="intro-logo">
-    <img src="logo-dragoi.png" alt="Dragoi Design Logo" />
+    <img src="png/logo-dragoi.png" alt="Dragoi Design Logo" />
   </div>
 
   <!-- Header / Navigation -->
@@ -24,7 +25,7 @@
     <div class="container header-inner">
       <div class="logo">
         <a href="#hero">
-          <img src="logo-dragoi.png" alt="Dragoi Design – Webdesign Logo" class="logo-image" />
+          <img src="png/logo-dragoi.png" alt="Dragoi Design – Webdesign Logo" class="logo-image" />
         </a>
       </div>
 
@@ -105,7 +106,7 @@
         </div>
       </div>
     </section>
-    
+
 
     <!-- Über mich -->
     <section id="about" class="section section-alt">
@@ -153,29 +154,30 @@
       </div>
     </section>
 
-    <!-- Projekte -->
+    <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="container">
         <div class="section-header">
           <h2>Ausgewählte Projekte</h2>
-          <p>
-            Eine Auswahl von Projekten und Beispielen, die ich umgesetzt habe
-            bzw. als Demo-Projekte erstellt habe.
-          </p>
+          <p>Eine Auswahl meiner Arbeiten.</p>
         </div>
 
         <div class="projects-grid">
+
           <!-- Projekt 1 -->
-          <article class="project-card">
-            <div class="project-image project-image-1">
-              <span class="project-label">Portfolio</span>
+          <article class="project-card" data-images="png/portfolio-1.png,png/portfolio-2.png,png/portfolio-3.png"
+            data-title="Eigene Portfolio-Seite"
+            data-desc="Kurze Projektbeschreibung. Hier steht später, was das Projekt kann.">
+
+            <div class="project-slider">
+              <button class="slider-arrow slider-prev">‹</button>
+              <img class="slider-image" src="png/portfolio-1.png" alt="Portfolio Vorschau">
+              <button class="slider-arrow slider-next">›</button>
             </div>
+
             <div class="project-body">
               <h3>Eigene Portfolio-Seite</h3>
-              <p>
-                Single-Page-Portfolio zur Vorstellung meiner Person, Skills
-                und Kontaktmöglichkeiten – optimiert für Desktop & Mobile.
-              </p>
+              <p>Single-Page-Portfolio zur Vorstellung meiner Person.</p>
               <ul class="project-tags">
                 <li>HTML5</li>
                 <li>CSS3</li>
@@ -187,46 +189,53 @@
             </div>
           </article>
 
+
           <!-- Projekt 2 -->
-          <article class="project-card">
-            <div class="project-image project-image-2">
-              <span class="project-label">Unternehmensseite</span>
+          <article class="project-card" data-images="png/umruester.png,png/umruester-2.png,png/umruester-3.png"
+            data-title="Fiktive Firmenwebsite"
+            data-desc="Kurze Projektbeschreibung. Platzhaltertext für das Firmenprojekt.">
+
+            <div class="project-slider">
+              <button class="slider-arrow slider-prev">‹</button>
+              <img class="slider-image" src="png/umruester.png" alt="Firmenwebsite Vorschau">
+              <button class="slider-arrow slider-next">›</button>
             </div>
+
             <div class="project-body">
               <h3>Fiktive Firmenwebsite</h3>
-              <p>
-                Beispiel-Seite für ein kleines Unternehmen mit Startseite,
-                Leistungen, Referenzen und Kontaktbereich.
-              </p>
+              <p>Strukturierte Unternehmensseite mit responsiver Gestaltung.</p>
               <ul class="project-tags">
-                <li>Responsive Layout</li>
+                <li>Responsive Design</li>
                 <li>Flexbox</li>
-                <li>CSS Grid</li>
+                <li>Grid</li>
               </ul>
               <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">Live Demo</a>
+                <a href="https://umruester.vercel.app/" target="_blank">Live Demo</a>
               </div>
             </div>
           </article>
 
+
           <!-- Projekt 3 -->
-          <article class="project-card">
-            <div class="project-image project-image-3">
-              <span class="project-label">Webtool</span>
+          <article class="project-card" data-images="png/Searcher.png,png/Searcher-2.png,png/Searcher-3.png"
+            data-title="Kleines Webtool" data-desc="Kurze Projektbeschreibung. Dieser Text wird später ersetzt.">
+
+            <div class="project-slider">
+              <button class="slider-arrow slider-prev">‹</button>
+              <img class="slider-image" src="png/Searcher.png" alt="Projektbild">
+              <button class="slider-arrow slider-next">›</button>
             </div>
+
             <div class="project-body">
               <h3>Kleines Webtool</h3>
-              <p>
-                Einfaches JavaScript-Webtool (z.B. Rechner, Converter oder
-                To-do-Liste) als Demo zur Darstellung von Interaktivität.
-              </p>
+              <p>Interaktives Tool mit klarer UI.</p>
               <ul class="project-tags">
                 <li>JavaScript</li>
                 <li>DOM</li>
-                <li>Browser DevTools</li>
+                <li>Utility Tools</li>
               </ul>
               <div class="project-links">
-                <a href="#" target="_blank" rel="noreferrer">Live Demo</a>
+                <a href="https://searcher-iota.vercel.app/auth.html" target="_blank">Projekt öffnen</a>
               </div>
             </div>
           </article>
@@ -388,6 +397,7 @@
           </p>
         </div>
 
+
         <div class="contact-grid">
           <div class="contact-info">
             <p>
@@ -416,6 +426,7 @@
 
           <form class="contact-form">
             <!-- Zeile 1: Name + E-Mail -->
+            <div id="cat-container"></div>
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Name *</label>
@@ -427,141 +438,95 @@
               </div>
             </div>
 
-             <!-- FORMULAR MIT KATZE -->
+
             <form class="contact-form">
 
-              <!-- 🐱 KATZE OBEN AUF DEM FORMULAR -->
-              <div class="cat-on-form">
-                <!-- SVG KATZE (vollständig) -->
-                <svg id="cat" viewBox="0 0 300 300">
 
-                  <!-- KÖRPER -->
-                  <ellipse id="body" cx="150" cy="200" rx="70" ry="50" fill="#d2b48c"/>
-
-                  <!-- SCHWANZ -->
-                  <path id="tail" d="M210 220 Q250 230 240 260" stroke="#c9a46a" stroke-width="12" fill="none" stroke-linecap="round"/>
-
-                  <!-- PFOTE -->
-                  <ellipse id="paw" cx="120" cy="230" rx="22" ry="14" fill="#d2b48c"/>
-
-                  <!-- KOPF -->
-                  <g id="head">
-
-                    <!-- Hauptkopf -->
-                    <circle cx="0" cy="0" r="40" fill="#d2b48c"/>
-
-                    <!-- Ohren -->
-                    <polygon points="-30,-35 -10,-10 -35,-5" fill="#d2b48c"/>
-                    <polygon points="30,-35 10,-10 35,-5" fill="#d2b48c"/>
-
-                    <!-- Augen -->
-                    <circle cx="-15" cy="-5" r="12" fill="white"/>
-                    <circle cx="15" cy="-5" r="12" fill="white"/>
-
-                    <!-- Pupillen -->
-                    <circle id="pupil-left" cx="-15" cy="-5" r="4" fill="black"/>
-                    <circle id="pupil-right" cx="15" cy="-5" r="4" fill="black"/>
-
-                    <!-- Augenlider -->
-                    <ellipse id="eyelid-left" cx="-15" cy="-5" rx="12" ry="18" fill="transparent" stroke="none"/>
-                    <ellipse id="eyelid-right" cx="15" cy="-5" rx="12" ry="18" fill="transparent" stroke="none"/>
-
-                    <!-- Nase -->
-                    <circle cx="0" cy="5" r="4" fill="pink"/>
-
-                    <!-- Schnurrhaare -->
-                    <line x1="-10" y1="10" x2="-35" y2="12" stroke="black" stroke-width="2"/>
-                    <line x1="-10" y1="15" x2="-35" y2="18" stroke="black" stroke-width="2"/>
-                    <line x1="10" y1="10" x2="35" y2="12" stroke="black" stroke-width="2"/>
-                    <line x1="10" y1="15" x2="35" y2="18" stroke="black" stroke-width="2"/>
-
-                  </g>
-                </svg>
+              <!-- Zeile 2: Telefon + Projektart -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="phone">Telefon (optional)</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+43 ..." />
+                </div>
+                <div class="form-field">
+                  <label for="projectType">Projektart *</label>
+                  <select id="projectType" name="projectType" required>
+                    <option value="">Bitte auswählen</option>
+                    <option value="neue-website">Neue Website</option>
+                    <option value="relaunch">Relaunch bestehender Website</option>
+                    <option value="online-shop">Online-Shop</option>
+                    <option value="landingpage">Landingpage / Kampagnenseite</option>
+                    <option value="sonstiges">Sonstiges</option>
+                  </select>
+                </div>
               </div>
-            <!-- Zeile 2: Telefon + Projektart -->
-            <div class="form-row">
-              <div class="form-field">
-                <label for="phone">Telefon (optional)</label>
-                <input type="tel" id="phone" name="phone" placeholder="+43 ..." />
+
+              <!-- Zeile 3: Budget + Zeitraum -->
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="budget">Budgetrahmen *</label>
+                  <select id="budget" name="budget" required>
+                    <option value="">Bitte auswählen</option>
+                    <option value="bis-500">bis ca. 500 €</option>
+                    <option value="500-1000">500 – 1.000 €</option>
+                    <option value="1000-2000">1.000 – 2.000 €</option>
+                    <option value="ueber-2000">über 2.000 €</option>
+                    <option value="unklar">noch unklar</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="timeline">Zeitraum / Start</label>
+                  <select id="timeline" name="timeline">
+                    <option value="">Optional auswählen</option>
+                    <option value="so-bald-wie-moeglich">So bald wie möglich</option>
+                    <option value="1-monat">In ca. 1 Monat</option>
+                    <option value="3-monate">In den nächsten 3 Monaten</option>
+                    <option value="flexibel">Flexibel / noch offen</option>
+                  </select>
+                </div>
               </div>
+
+              <!-- Projektbeschreibung -->
               <div class="form-field">
-                <label for="projectType">Projektart *</label>
-                <select id="projectType" name="projectType" required>
-                  <option value="">Bitte auswählen</option>
-                  <option value="neue-website">Neue Website</option>
-                  <option value="relaunch">Relaunch bestehender Website</option>
-                  <option value="online-shop">Online-Shop</option>
-                  <option value="landingpage">Landingpage / Kampagnenseite</option>
+                <label for="message">Projektbeschreibung *</label>
+                <textarea id="message" name="message" rows="5"
+                  placeholder="Kurz zu deinem Projekt: Branche, Ziel, gewünschte Seiten/Features ..."
+                  required></textarea>
+              </div>
+
+              <!-- Wie bist du auf mich aufmerksam geworden? -->
+              <div class="form-field">
+                <label for="source">Wie bist du auf mich aufmerksam geworden?</label>
+                <select id="source" name="source">
+                  <option value="">Bitte auswählen (optional)</option>
+                  <option value="empfehlung">Empfehlung</option>
+                  <option value="google">Google / Suche</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="netzwerk">Netzwerk / Veranstaltung</option>
                   <option value="sonstiges">Sonstiges</option>
                 </select>
               </div>
-            </div>
 
-            <!-- Zeile 3: Budget + Zeitraum -->
-            <div class="form-row">
-              <div class="form-field">
-                <label for="budget">Budgetrahmen *</label>
-                <select id="budget" name="budget" required>
-                  <option value="">Bitte auswählen</option>
-                  <option value="bis-500">bis ca. 500 €</option>
-                  <option value="500-1000">500 – 1.000 €</option>
-                  <option value="1000-2000">1.000 – 2.000 €</option>
-                  <option value="ueber-2000">über 2.000 €</option>
-                  <option value="unklar">noch unklar</option>
-                </select>
+              <!-- Datenschutz / Einwilligung -->
+              <div class="form-field form-field-checkbox">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="consent" name="consent" required />
+                  <span>
+                    Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage
+                    gespeichert und verarbeitet werden. Weitere Informationen in der
+                    Datenschutzerklärung.
+                  </span>
+                </label>
               </div>
-              <div class="form-field">
-                <label for="timeline">Zeitraum / Start</label>
-                <select id="timeline" name="timeline">
-                  <option value="">Optional auswählen</option>
-                  <option value="so-bald-wie-moeglich">So bald wie möglich</option>
-                  <option value="1-monat">In ca. 1 Monat</option>
-                  <option value="3-monate">In den nächsten 3 Monaten</option>
-                  <option value="flexibel">Flexibel / noch offen</option>
-                </select>
-              </div>
-            </div>
 
-            <!-- Projektbeschreibung -->
-            <div class="form-field">
-              <label for="message">Projektbeschreibung *</label>
-              <textarea id="message" name="message" rows="5"
-                placeholder="Kurz zu deinem Projekt: Branche, Ziel, gewünschte Seiten/Features ..." required></textarea>
-            </div>
-
-            <!-- Wie bist du auf mich aufmerksam geworden? -->
-            <div class="form-field">
-              <label for="source">Wie bist du auf mich aufmerksam geworden?</label>
-              <select id="source" name="source">
-                <option value="">Bitte auswählen (optional)</option>
-                <option value="empfehlung">Empfehlung</option>
-                <option value="google">Google / Suche</option>
-                <option value="social-media">Social Media</option>
-                <option value="netzwerk">Netzwerk / Veranstaltung</option>
-                <option value="sonstiges">Sonstiges</option>
-              </select>
-            </div>
-
-            <!-- Datenschutz / Einwilligung -->
-            <div class="form-field form-field-checkbox">
-              <label class="checkbox-label">
-                <input type="checkbox" id="consent" name="consent" required />
-                <span>
-                  Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage
-                  gespeichert und verarbeitet werden. Weitere Informationen in der
-                  Datenschutzerklärung.
-                </span>
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-              Anfrage senden
-            </button>
-            <p class="form-status" aria-live="polite"></p>
-          </form>
+              <button type="submit" class="btn btn-primary">
+                Anfrage senden
+              </button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
         </div>
       </div>
-      
+
     </section>
 
 
@@ -578,8 +543,19 @@
       </div>
     </footer>
 
+
+    <!-- LIGHTBOX gehört HIERHIN! -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-inner">
+        <img id="lightbox-img" src="" alt="">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <button id="lightbox-close">×</button>
+      </div>
+    </div>
+
     <script src="script.js" defer></script>
-    <script src="cat.js" defer></script>
+
 </body>
 
 </html>

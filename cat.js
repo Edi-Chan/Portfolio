@@ -1,140 +1,129 @@
-/* ============================================
-   KATZEN-ANIMATION – SMOOTH VERSION
-   - Kopf folgt Maus mit sanftem Nachziehen
-   - Pupillen folgen weich
-   - Körper atmet
-   - Pfote hebt sich spielerisch
-   - Schwanz wackelt
-   - Blinzeln
-   ============================================ */
+/* PIXEL CAT ANIMATION – HEAD TILT + SAFE EYES + SQUINT IN CONTACT FORM + STRONG BLINK */
 
 const head = document.getElementById("head");
 const body = document.getElementById("body");
-const paw = document.getElementById("paw");
+const pawL = document.getElementById("paw-left");
+const pawR = document.getElementById("paw-right");
 const tail = document.getElementById("tail");
-
-const eyelidL = document.getElementById("eyelid-left");
-const eyelidR = document.getElementById("eyelid-right");
 
 const pupilL = document.getElementById("pupil-left");
 const pupilR = document.getElementById("pupil-right");
 
-let mouseX = 0;
-let mouseY = 0;
+const eyelidL = document.getElementById("eyelid-left");
+const eyelidR = document.getElementById("eyelid-right");
+
+let mouseX = 0, mouseY = 0;
 let t = 0;
 let blinkTimer = 0;
+let isBlinking = false;
+let mouseInsideForm = false;
 
-// für sanftes Nachziehen
-let currentAngle = 0;
-let targetAngle = 0;
+/* DETECT IF MOUSE IS INSIDE THE CONTACT FORM */
+const form = document.querySelector(".contact-form");
 
-let currentPupilX = 0;
-let currentPupilY = 0;
-let targetPupilX = 0;
-let targetPupilY = 0;
+if (form) {
+  form.addEventListener("mouseenter", () => { mouseInsideForm = true; });
+  form.addEventListener("mouseleave", () => { mouseInsideForm = false; });
+}
 
-/* ---------------------------------------------------
-   GLOBAL MOUSE MOVE TRACKING
---------------------------------------------------- */
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", e => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
 
-/* Kleines Hilfs-Lerp für sanfte Übergänge */
-function lerp(start, end, factor) {
-  return start + (end - start) * factor;
+function blink() {
+  if (isBlinking) return;
+
+  isBlinking = true;
+  eyelidL.setAttribute("height", 12);
+  eyelidR.setAttribute("height", 12);
+
+  setTimeout(() => {
+    eyelidL.setAttribute("height", 0);
+    eyelidR.setAttribute("height", 0);
+    isBlinking = false;
+  }, 150);
 }
 
-/* ---------------------------------------------------
-   ANIMATION LOOP
---------------------------------------------------- */
 function animateCat() {
   t += 0.05;
   blinkTimer++;
 
-  /* ===========================
-     KOPF FOLGT MAUS (SMOOTH)
-     =========================== */
-  const rect = head.getBoundingClientRect();
-
-  const cx = rect.left + rect.width / 2;
-  const cy = rect.top + rect.height / 2;
+  /* HEAD CENTER */
+  const r = head.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + r.height / 2;
 
   const dx = mouseX - cx;
   const dy = mouseY - cy;
+  const distToHead = Math.hypot(dx, dy);
 
-  // Rohwinkel berechnen
-  const rawAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+  /* HEAD TILT */
+  const maxTiltX = 20;
+  const maxTiltY_up = -5;
+  const maxTiltY_down = 10;
 
-  // SVG-Rotation dreht "anders herum", daher invertieren
-  const flippedAngle = -rawAngle;
+  const tiltX = Math.max(-maxTiltX, Math.min(maxTiltX, dx * 0.08));
 
-  // Kopfbewegung begrenzen
-  const limitedAngle = Math.max(-40, Math.min(40, flippedAngle));
-
-  // Zielwinkel setzen
-  targetAngle = limitedAngle;
-
-  // Sanftes Nachziehen
-  currentAngle = lerp(currentAngle, targetAngle, 0.08);
+  let tiltY = dy * 0.10;
+  if (tiltY < maxTiltY_up) tiltY = maxTiltY_up;
+  if (tiltY > maxTiltY_down) tiltY = maxTiltY_down;
 
   head.setAttribute(
     "transform",
-    `translate(150,120) rotate(${currentAngle})`
+    `translate(60,40) rotate(${tiltX}) translate(0,${tiltY})`
   );
 
-  /* ===========================
-     PUPILLEN – SMOOTH FOLLOW
-     =========================== */
-  const dist = Math.hypot(dx, dy) || 1;
+  /* EYE TRACKING WITH LIMITS */
+  const dist = distToHead || 1;
   const ux = dx / dist;
   const uy = dy / dist;
 
-  targetPupilX = ux * 4;
-  targetPupilY = uy * 4;
+  const limitX = 3.5;
+  const limitY_up = 3.5;
+  const limitY_down = 2;
 
-  currentPupilX = lerp(currentPupilX, targetPupilX, 0.18);
-  currentPupilY = lerp(currentPupilY, targetPupilY, 0.18);
+  let px = ux * limitX;
+  let py = uy * limitY_up;
 
-  pupilL.setAttribute("cx", currentPupilX);
-  pupilL.setAttribute("cy", currentPupilY);
-  pupilR.setAttribute("cx", currentPupilX);
-  pupilR.setAttribute("cy", currentPupilY);
+  if (py > limitY_down) py = limitY_down;
 
-  /* ===========================
-     ATEM-EFFEKT (KÖRPER)
-     =========================== */
-  const breathe = Math.sin(t) * 4;
-  body.setAttribute("transform", `translate(0, ${breathe})`);
+  pupilL.setAttribute("x", -8 + px);
+  pupilL.setAttribute("y", -2 + py);
+  pupilR.setAttribute("x", 6 + px);
+  pupilR.setAttribute("y", -2 + py);
 
-  /* ===========================
-     PFOTE
-     =========================== */
-  const pawMove = Math.sin(t * 2) * 6;
-  paw.setAttribute("transform", `translate(0, ${pawMove})`);
+  /* ----------------------------------------------- */
+  /* NEW: SQUINT WHEN MOUSE IS INSIDE CONTACT FORM   */
+  /* ----------------------------------------------- */
 
-  /* ===========================
-     SCHWANZ
-     =========================== */
-  const tailAngle = Math.sin(t * 2) * 4;
-  tail.setAttribute("transform", `rotate(${tailAngle} 215 220)`);
-
-  /* ===========================
-     BLINZELN
-     =========================== */
-  if (blinkTimer % 260 === 0) {
-    eyelidL.setAttribute("ry", 2);
-    eyelidR.setAttribute("ry", 2);
-
-    setTimeout(() => {
-      eyelidL.setAttribute("ry", 18);
-      eyelidR.setAttribute("ry", 18);
-    }, 150);
+  if (mouseInsideForm && !isBlinking) {
+    eyelidL.setAttribute("height", 6);
+    eyelidR.setAttribute("height", 6);
+  } else if (!isBlinking) {
+    eyelidL.setAttribute("height", 0);
+    eyelidR.setAttribute("height", 0);
   }
+
+  /* BLINK – only when not squinting */
+  if (!mouseInsideForm && !isBlinking) {
+    if (blinkTimer > 180 + Math.random() * 120) {
+      blink();
+      blinkTimer = 0;
+    }
+  }
+
+  /* BREATHING */
+  body.setAttribute("transform", `translate(0, ${Math.sin(t) * 1.2})`);
+
+  /* PAWS */
+  const paw = Math.sin(t * 2) * 0.3;
+  pawL.setAttribute("transform", `translate(0,${paw})`);
+  pawR.setAttribute("transform", `translate(0,${paw})`);
+
+  /* TAIL */
+  const wag = Math.sin(t * 2) * 5;
+  tail.setAttribute("transform", `rotate(${wag} 80 75)`);
 
   requestAnimationFrame(animateCat);
 }
-
-// Animation starten
-animateCat();

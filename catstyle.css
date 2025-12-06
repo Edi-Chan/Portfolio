@@ -1,15 +1,28 @@
-/* Katze sitzt auf dem Kontaktformular */
 .cat-on-form {
   position: absolute;
-  top: 100px;     /* höher setzen */
-  right: 0px;   /* leicht nach rechts */
-  width: 260px;
-  height: 260px;
+  top: -140px;         /* wie bisher → Höhe über dem Formular */
+  left: 50%;           /* horizontaler Mittelpunkt der Seite */
+  transform: translateX(-50%); /* exakt zentrieren */
+  width: 180px;
+  height: 180px;
   pointer-events: none;
   z-index: 50;
 }
 
+
 #cat {
   width: 100%;
   height: 100%;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 600px) {
+  .cat-on-form {
+    top: -80px;
+    width: 130px;
+    height: 130px;
+
+    left: 90%;              /* weiter nach rechts */
+    transform: translateX(-50%); /* lässt sie sauber verschoben erscheinen */
+  }
 }
