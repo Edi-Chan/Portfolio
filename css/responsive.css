@@ -1,0 +1,96 @@
+/* MEDIUM: bis 960px */
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-card {
+    order: -1;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* SMALL: bis 720px */
+
+@media (max-width: 720px) {
+  .header-inner {
+    padding: 0.7rem 0;
+  }
+
+  .nav { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-mobile { display: none; }
+  .nav-mobile.is-open { display: block; }
+
+  .hero {
+    padding-top: 3.3rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.7rem;
+  }
+
+  .projects-grid,
+  .skills-grid,
+  .pricing-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* EXTRA SMALL: bis 480px */
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 1.8rem, 100%);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-card {
+    padding: 1.3rem 1.1rem;
+  }
+
+  .contact-form {
+    padding: 1.1rem 1.15rem;
+  }
+
+  .intro-logo img {
+    width: 180px;
+  }
+}
