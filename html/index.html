@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../css/components.css">
 <link rel="stylesheet" href="../css/sections.css">
 <link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/intro.css">
 
 <!-- Spezialkram IMMER ganz unten → überschreibt nichts -->
 <link rel="stylesheet" href="../css/music-player.css">
@@ -26,10 +27,18 @@
 
 <body>
 
-  <!-- Intro Logo Animation -->
-  <div id="intro-logo" class="intro-logo">
-    <img src="../png/logo-dragoi.png" alt="Dragoi Design Logo" />
+<div id="intro-intro" class="intro-intro">
+  <video class="intro-video" src="../assets/intro.mp4" autoplay muted playsinline></video>
+
+  <div class="logo-burst">
+    <div class="logo-wrapper">
+      <img class="logo-img" src="../png/logo-dragoi.png" alt="Logo">
+    </div>
   </div>
+</div>
+
+
+
 
   <!-- Header / Navigation -->
   <header class="site-header">
@@ -565,8 +574,9 @@
       </div>
     </div>
 
-    <script type="module" src="../js/main.js"></script>
 
+    <script src="../js/intro.js" defer></script>
+    <script type="module" src="../js/main.js"></script>
     <script src="../js/music-player.js" defer></script>
 
 

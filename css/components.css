@@ -320,37 +320,3 @@ select:focus {
   width: 16px;
   height: 16px;
 }
-/* INTRO LOGO ANIMATION */
-
-.intro-logo {
-  position: fixed;
-  inset: 0;
-  background: #020617;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 1;
-  animation: fadeOut 1.5s ease forwards;
-  animation-delay: 2.5s;
-}
-
-.intro-logo img {
-  width: 220px;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: logoPop 1.5s ease forwards;
-}
-
-@keyframes logoPop {
-  0% { opacity: 0; transform: scale(0.8); }
-  60% { opacity: 1; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
