@@ -2,45 +2,48 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Web Annotator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Web Annotator – Dock UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="painter/style.css">
+  <link rel="stylesheet" href="painter/mobilestyle.css">
 </head>
 
 <body>
-
-<header id="toolbar">
-
-  <div class="group">
-    <input id="urlInput" type="text" placeholder="index2.html">
-    <button id="btn-load" class="icon-btn" title="Seite laden">🔄</button>
-  </div>
-
-  <div class="group">
-    <button class="tool-btn icon-btn" data-tool="none" title="Maus">🖱️</button>
-    <button class="tool-btn icon-btn" data-tool="pen" title="Stift">✏️</button>
-    <button class="tool-btn icon-btn" data-tool="eraser" title="Radierer">🧽</button>
-    <button class="tool-btn icon-btn" data-tool="line" title="Linie">📏</button>
-    <button class="tool-btn icon-btn" data-tool="rect" title="Rechteck">⬛</button>
-    <button class="tool-btn icon-btn" data-tool="text" title="Text">🔤</button>
-  </div>
-
-  <div class="group">
-    <input type="color" id="colorPicker" value="#ff0000">
-    <input type="number" id="sizePicker" value="4" min="1" max="40">
-  </div>
-
-  <div class="group">
-    <button id="btn-undo" class="icon-btn" title="Undo">↩️</button>
-    <button id="btn-redo" class="icon-btn" title="Redo">↪️</button>
-    <button id="btn-clear" class="icon-btn" title="Löschen">🗑️</button>
-  </div>
-
-</header>
 
 <div id="workspace">
   <iframe id="viewer" src="index2.html"></iframe>
 </div>
 
-<script src="script.js"></script>
+<footer id="dock">
+  <div class="dock-section">
+    <button class="tool-btn active" data-tool="none">🖱️</button>
+    <button class="tool-btn" data-tool="pen">✏️</button>
+    <button class="tool-btn" data-tool="line">📏</button>
+    <button class="tool-btn" data-tool="rect">⬛</button>
+    <button class="tool-btn" data-tool="text">🔤</button>
+  </div>
+
+  <div class="dock-section center">
+    <label class="input-wrapper">
+      <span>Farbe</span>
+      <input type="color" id="colorPicker" value="#ff0000">
+    </label>
+
+    <label class="input-wrapper">
+      <span>Größe</span>
+      <input type="number" id="sizePicker" value="4" min="1" max="40">
+    </label>
+  </div>
+
+  <div class="dock-section right">
+    <button id="btn-undo" class="icon-btn">↩️</button>
+    <button id="btn-redo" class="icon-btn">↪️</button>
+    <button id="btn-clear" class="icon-btn trash">🗑️</button>
+  </div>
+</footer>
+
+<script src="painter/script.js"></script>
+
 </body>
 </html>
