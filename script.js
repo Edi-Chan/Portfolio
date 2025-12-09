@@ -9,7 +9,7 @@ let canvas, ctx;
 let history = [];
 let redoStack = [];
 
-/* iframe geladen → Canvas INS iframe setzen */
+/* iframe geladen → Canvas INS iframe */
 viewer.addEventListener("load", () => {
   const doc = viewer.contentDocument;
 
@@ -17,29 +17,30 @@ viewer.addEventListener("load", () => {
   canvas.id = "drawInside";
   doc.body.appendChild(canvas);
 
-  canvas.style.position = "fixed";
-  canvas.style.top = 0;
-  canvas.style.left = 0;
-  canvas.style.width = "100vw";
-  canvas.style.height = "100vh";
-  canvas.style.zIndex = 99999;
+  updateCanvasSize(doc);
+
+  canvas.style.position = "absolute";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
   canvas.style.pointerEvents = "auto";
+  canvas.style.zIndex = "99999";
 
   ctx = canvas.getContext("2d");
 
-  resizeCanvas();
   setupDrawing(doc);
 
   saveState();
 });
 
-function resizeCanvas() {
-  if (!canvas) return;
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+/* Größe an Inhalt anpassen */
+function updateCanvasSize(doc) {
+  const w = doc.documentElement.scrollWidth;
+  const h = doc.documentElement.scrollHeight;
+  canvas.width = w;
+  canvas.height = h;
+  canvas.style.width = w + "px";
+  canvas.style.height = h + "px";
 }
-
-window.addEventListener("resize", resizeCanvas);
 
 /* Undo/Redo */
 function saveState() {
@@ -56,7 +57,7 @@ function restoreState(dataUrl) {
   };
 }
 
-/* Werkzeuge */
+/* Werkzeugauswahl */
 document.querySelectorAll(".tool-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".tool-btn").forEach(b => b.classList.remove("active"));
@@ -71,14 +72,14 @@ document.getElementById("btn-load").addEventListener("click", () => {
   viewer.src = url;
 });
 
-/* Zeichnen IM iframe */
+/* ZEICHNEN */
 function setupDrawing(doc) {
 
   canvas.addEventListener("mousedown", e => {
     drawing = true;
-    const rect = canvas.getBoundingClientRect();
-    startX = e.clientX - rect.left;
-    startY = e.clientY - rect.top;
+
+    startX = e.pageX;
+    startY = e.pageY;
 
     if (tool === "pen" || tool === "eraser") {
       ctx.beginPath();
@@ -86,7 +87,7 @@ function setupDrawing(doc) {
     }
 
     if (tool === "text") {
-      let txt = prompt("Text eingeben:");
+      const txt = prompt("Text eingeben:");
       if (txt) {
         ctx.fillStyle = colorPicker.value;
         ctx.font = "20px Arial";
@@ -100,9 +101,8 @@ function setupDrawing(doc) {
   canvas.addEventListener("mousemove", e => {
     if (!drawing) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = e.pageX;
+    const y = e.pageY;
     const color = colorPicker.value;
     const size = sizePicker.value;
 
@@ -124,9 +124,8 @@ function setupDrawing(doc) {
   canvas.addEventListener("mouseup", e => {
     if (!drawing) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = e.pageX;
+    const y = e.pageY;
     const color = colorPicker.value;
     const size = sizePicker.value;
 
