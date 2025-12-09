@@ -64,7 +64,6 @@ function updateCanvasSize(doc) {
 =========================================== */
 
 function getCoords(e) {
-
     const iframeRect = viewer.getBoundingClientRect();
     const win = viewer.contentWindow;
 
@@ -76,6 +75,7 @@ function getCoords(e) {
         clientY = e.touches[0].clientY;
     }
 
+    // Koordinaten IM IFRAME
     const x = (clientX - iframeRect.left) + win.scrollX;
     const y = (clientY - iframeRect.top) + win.scrollY;
 
@@ -129,11 +129,7 @@ document.querySelectorAll(".tool-btn").forEach(btn => {
 });
 
 function applyPointerMode() {
-    if (tool === "text") {
-        canvas.style.pointerEvents = "none";   // wichtig fürs Schreiben
-    } else {
-        canvas.style.pointerEvents = "auto";
-    }
+    canvas.style.pointerEvents = "auto";
 }
 
 /* ===========================================
@@ -193,9 +189,6 @@ function getTextAtPos(x, y) {
 }
 
 function spawnTextInput(doc, x, y) {
-
-    canvas.style.pointerEvents = "none"; // Canvas darf nicht blockieren
-
     const input = doc.createElement("input");
     input.type = "text";
     input.placeholder = "Text…";
@@ -204,36 +197,23 @@ function spawnTextInput(doc, x, y) {
     input.style.top = y + "px";
     input.style.left = x + "px";
     input.style.zIndex = "100000";
-    input.style.fontSize = "20px";
-    input.style.fontFamily = "Inter";
-    input.style.background = "white";
-    input.style.border = "1px solid #ccc";
-    input.style.padding = "2px 4px";
 
     doc.body.appendChild(input);
     input.focus();
 
     input.addEventListener("keydown", ev => {
-
         if (ev.key === "Enter") {
             texts.push({
-                x,
-                y,
+                x, y,
                 value: input.value,
                 color: colorPicker.value,
                 size: 20
             });
-
             input.remove();
-            canvas.style.pointerEvents = "auto";
             renderAll();
             saveState();
         }
-
-        if (ev.key === "Escape") {
-            input.remove();
-            canvas.style.pointerEvents = "auto";
-        }
+        if (ev.key === "Escape") input.remove();
     });
 }
 
@@ -248,6 +228,7 @@ function setupEvents(doc) {
 
         if (tool === "text") {
             spawnTextInput(doc, x, y);
+            tool = "none";
             return;
         }
 
