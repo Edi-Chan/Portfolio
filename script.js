@@ -9,16 +9,14 @@ let canvas, ctx;
 let history = [];
 let redoStack = [];
 
-/* iframe geladen → Canvas INS iframe einfügen */
+/* iframe geladen → Canvas INS iframe setzen */
 viewer.addEventListener("load", () => {
   const doc = viewer.contentDocument;
 
-  // Neues Canvas ins iframe bauen
   canvas = doc.createElement("canvas");
   canvas.id = "drawInside";
   doc.body.appendChild(canvas);
 
-  // Canvas fullscreen machen
   canvas.style.position = "fixed";
   canvas.style.top = 0;
   canvas.style.left = 0;
@@ -27,11 +25,10 @@ viewer.addEventListener("load", () => {
   canvas.style.zIndex = 99999;
   canvas.style.pointerEvents = "auto";
 
-  // Context holen
   ctx = canvas.getContext("2d");
 
   resizeCanvas();
-  setupDrawing();
+  setupDrawing(doc);
 
   saveState();
 });
@@ -68,19 +65,20 @@ document.querySelectorAll(".tool-btn").forEach(btn => {
   });
 });
 
-/* Laden */
+/* Seite laden */
 document.getElementById("btn-load").addEventListener("click", () => {
   let url = document.getElementById("urlInput").value.trim();
   viewer.src = url;
 });
 
-/* Zeichnen im iframe */
-function setupDrawing() {
+/* Zeichnen IM iframe */
+function setupDrawing(doc) {
 
   canvas.addEventListener("mousedown", e => {
     drawing = true;
-    startX = e.offsetX;
-    startY = e.offsetY;
+    const rect = canvas.getBoundingClientRect();
+    startX = e.clientX - rect.left;
+    startY = e.clientY - rect.top;
 
     if (tool === "pen" || tool === "eraser") {
       ctx.beginPath();
@@ -102,20 +100,23 @@ function setupDrawing() {
   canvas.addEventListener("mousemove", e => {
     if (!drawing) return;
 
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     const color = colorPicker.value;
     const size = sizePicker.value;
 
     if (tool === "pen") {
       ctx.strokeStyle = color;
       ctx.lineWidth = size;
-      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.lineTo(x, y);
       ctx.stroke();
     }
 
     if (tool === "eraser") {
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = size * 2;
-      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.lineTo(x, y);
       ctx.stroke();
     }
   });
@@ -123,6 +124,9 @@ function setupDrawing() {
   canvas.addEventListener("mouseup", e => {
     if (!drawing) return;
 
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     const color = colorPicker.value;
     const size = sizePicker.value;
 
@@ -131,14 +135,14 @@ function setupDrawing() {
       ctx.lineWidth = size;
       ctx.beginPath();
       ctx.moveTo(startX, startY);
-      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.lineTo(x, y);
       ctx.stroke();
     }
 
     if (tool === "rect") {
       ctx.strokeStyle = color;
       ctx.lineWidth = size;
-      ctx.strokeRect(startX, startY, e.offsetX - startX, e.offsetY - startY);
+      ctx.strokeRect(startX, startY, x - startX, y - startY);
     }
 
     drawing = false;
