@@ -1,7 +1,7 @@
 .cat-on-form {
   position: absolute;
-  top: -140px;         /* wie bisher → Höhe über dem Formular */
-  left: 50%;           /* horizontaler Mittelpunkt der Seite */
+  top: 10px;         /* wie bisher → Höhe über dem Formular */
+  left: 250px;           /* horizontaler Mittelpunkt der Seite */
   transform: translateX(-50%); /* exakt zentrieren */
   width: 180px;
   height: 180px;
@@ -18,11 +18,11 @@
 
 @media (max-width: 600px) {
   .cat-on-form {
-    top: -80px;
+    top: 10px;
     width: 130px;
     height: 130px;
 
-    left: 90%;              /* weiter nach rechts */
+    left: 100%;              /* weiter nach rechts */
     transform: translateX(-50%); /* lässt sie sauber verschoben erscheinen */
   }
 }
