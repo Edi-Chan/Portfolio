@@ -1,0 +1,250 @@
+/* ============================================
+   PROJECTS – CINEMATIC HERO STYLE
+   Warmes Glas, Gold-Akzente, weiche Schatten
+============================================ */
+
+/* Section Wrapper */
+#projects {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.projects-inner {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    text-align: center;
+
+    /* dunkles warmes Glas wie About */
+    background: rgba(30, 22, 18, 0.32);
+    backdrop-filter: blur(14px);
+    border-radius: 26px;
+    border: 1px solid rgba(255, 200, 150, 0.18);
+    padding: 3rem 2.4rem;
+
+    box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+
+    animation: projectsFade 1.1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes projectsFade {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.projects-inner h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: .6rem;
+}
+
+.projects-inner p {
+    color: #ffe7cc;
+    opacity: 0.9;
+    margin-bottom: 2.2rem;
+    font-size: 1.05rem;
+}
+
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 1.6rem;
+}
+
+/* Project Card */
+.project-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 200, 150, 0.16);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 160, 90, 0.7);
+    box-shadow: 0 22px 55px rgba(255,160,90,0.35);
+}
+
+/* Project Slider (keine Funktionsänderung) */
+.project-slider {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 200, 150, 0.22);
+}
+
+.slider-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity .35s ease;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 200, 150, 0.3);
+
+    background: rgba(30, 22, 18, 0.55);
+    backdrop-filter: blur(6px);
+
+    color: #ffe7cc;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background .25s ease, border-color .25s ease;
+    z-index: 5;
+}
+
+.slider-arrow:hover {
+    background: rgba(255,160,90,0.4);
+    border-color: rgba(255,160,90,0.8);
+}
+
+.slider-prev { left: 10px; }
+.slider-next { right: 10px; }
+
+/* BODY area */
+.project-body {
+    padding: 1.3rem 1.4rem 1.5rem;
+    text-align: left;
+}
+
+.project-body h3 {
+    margin: 0 0 .4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff4e8;
+}
+
+.project-body p {
+    color: #ffe7cc;
+    opacity: 0.85;
+    font-size: 0.95rem;
+    margin: 0 0 .4rem;
+}
+
+/* Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: .6rem;
+}
+
+.project-tags li {
+    background: rgba(255,200,150,0.1);
+    border: 1px solid rgba(255,200,150,0.25);
+
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    color: #ffe6c9;
+
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 99999;
+}
+
+.lightbox.is-active {
+    display: flex;
+}
+
+.lightbox-inner {
+    background: rgba(30,22,18,0.8);
+    backdrop-filter: blur(14px);
+
+    border-radius: 20px;
+    padding: 1.4rem 1.6rem 1.8rem;
+    border: 1px solid rgba(255,200,150,0.18);
+
+    max-width: 80vw;
+    text-align: center;
+    box-shadow: 0 14px 55px rgba(0,0,0,0.55);
+    position: relative;
+}
+
+.lightbox-inner img {
+    max-height: 70vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    font-size: 2.2rem;
+    color: #ffe6c9;
+    cursor: pointer;
+}
+/* ============================================
+   PROJECTS – HEADER (Cinematic Hero Style)
+============================================ */
+
+.projects-header {
+    margin-bottom: 2.6rem;
+    padding: 2rem 2.4rem;
+
+    background: rgba(30, 22, 18, 0.32);
+    backdrop-filter: blur(14px);
+
+    border-radius: 22px;
+    border: 1px solid rgba(255, 200, 150, 0.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+
+    text-align: center;
+    animation: projectHeaderFade 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes projectHeaderFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.projects-header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: .6rem;
+    text-shadow: 0 0 8px rgba(0,0,0,0.45);
+}
+
+.projects-header p {
+    font-size: 1.05rem;
+    color: #ffe7cc;
+    opacity: 0.9;
+}

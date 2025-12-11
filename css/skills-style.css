@@ -1,0 +1,97 @@
+/* ============================================
+   SKILLS – CINEMATIC HERO STYLE
+============================================ */
+
+/* Wrapper wie About/Projects */
+#skills {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.skills-inner {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+    text-align: center;
+
+    background: rgba(30, 22, 18, 0.32);
+    backdrop-filter: blur(14px);
+    border-radius: 26px;
+    border: 1px solid rgba(255, 200, 150, 0.18);
+    padding: 3rem 2.4rem;
+
+    box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+
+    animation: skillsFade 1.1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes skillsFade {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.skills-header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: .6rem;
+    text-shadow: 0 0 8px rgba(0,0,0,0.45);
+}
+
+.skills-header p {
+    font-size: 1.05rem;
+    color: #ffe7cc;
+    opacity: 0.9;
+    margin-bottom: 2.2rem;
+}
+
+/* Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+/* Einzelne Skill-Karte */
+.skill-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,200,150,0.18);
+    border-radius: 18px;
+    padding: 1.6rem 1.4rem;
+
+    text-align: left;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,160,90,0.7);
+    box-shadow: 0 22px 55px rgba(255,160,90,0.45);
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff4e8;
+    margin-bottom: .6rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card li {
+    font-size: 0.95rem;
+    color: #ffe6c9;
+    opacity: 0.9;
+    margin-bottom: .4rem;
+}
+

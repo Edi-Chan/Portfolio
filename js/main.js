@@ -9,6 +9,9 @@ import { initContactForm } from "./form.js";
 import { initPricingCards } from "./pricing.js";
 import { initProjectSliders } from "./slider.js";
 import { initCatLoader } from "./cat-loader.js";
+import { initSectionScroll } from "./scroll-sections.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -35,5 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Katze dynamisch laden
   initCatLoader();
+
+  initSectionScroll();
+
 
 });

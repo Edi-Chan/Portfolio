@@ -1,0 +1,181 @@
+/* ============================================
+   CONTACT – CINEMATIC HERO STYLE (KOMPAKTER)
+============================================ */
+
+/* SECTION */
+#contact {
+    padding: 4rem 0; /* reduziert */
+    display: flex;
+    justify-content: center;
+}
+
+/* Container */
+.contact-inner {
+    width: min(900px, 92%);
+    margin: 0 auto;
+}
+
+
+/* HEADER */
+.section-header {
+    text-align: center;
+    margin-bottom: 2.2rem; /* kleiner */
+}
+
+.section-header h2 {
+    font-size: 2rem; /* kleiner */
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0,0,0,0.45);
+    margin-bottom: .4rem;
+}
+
+.section-header p {
+    font-size: 0.95rem; /* kleiner */
+    color: #ffe7cc;
+    opacity: 0.9;
+}
+
+/* GRID */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 1.6rem; /* kompakter */
+}
+
+/* INFOBOX LINKS */
+.contact-info {
+    background: rgba(30,22,18,0.32);
+    border: 1px solid rgba(255,200,150,0.18);
+    border-radius: 20px; /* kleiner */
+    padding: 1.5rem 1.6rem; /* kompakter */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.45);
+}
+
+.contact-info p,
+.contact-info li {
+    color: #ffe7cc;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.contact-list strong {
+    color: #fff4e8;
+}
+
+/* FORMULARBOX */
+.contact-form {
+    position: relative;
+    background: rgba(30,22,18,0.32);
+    border-radius: 20px; /* kleiner */
+    padding: 2.2rem 1.8rem; /* kompakter */
+    border: 1px solid rgba(255,200,150,0.18);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+
+    animation: contactFade 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes contactFade {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* KATZE */
+#cat-container {
+    position: absolute;
+    top: -90px; /* kompakter */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;   /* kleiner */
+    height: 130px;  /* kleiner */
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* FORM ROWS */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1rem;
+    margin-bottom: 1.1rem; /* kompakter */
+}
+
+/* FORM FIELDS */
+.form-field {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.form-field label {
+    color: #ffe6c9;
+    font-size: 0.85rem; /* kleiner */
+    font-weight: 600;
+}
+
+/* INPUTS */
+input,
+textarea,
+select {
+    border-radius: 10px; /* kleiner */
+    border: 1px solid rgba(255,200,150,0.18);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+    padding: 0.55rem 0.75rem; /* kompakter */
+    font-size: 0.9rem;        /* kleiner */
+    color: #fff4e8;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #dabfa8;
+    opacity: .6;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(255,160,90,0.9);
+    box-shadow: 0 0 0 2px rgba(255,160,90,0.45);
+    background: rgba(255,255,255,0.12);
+}
+
+/* CHECKBOX */
+.checkbox-label span {
+    color: #ffe6c9;
+    font-size: .8rem;
+    opacity: .9;
+}
+
+/* BUTTON */
+.btn.btn-primary {
+    margin-top: 0.6rem;
+    width: 100%;
+    padding: 0.75rem; /* kompakter */
+    font-size: 0.9rem; /* kleiner */
+    font-weight: 700;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffd49a, #ff9d54);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(255,160,90,0.45);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(255,160,90,0.55);
+}
+
+/* STATUS */
+.form-status {
+    margin-top: .6rem;
+    color: #ffe6c9 !important;
+}
+
+

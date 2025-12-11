@@ -1,0 +1,132 @@
+/* ==================================================
+   HEADER – CINEMATIC HERO STYLE (Eigenständige Datei)
+================================================== */
+
+.site-header {
+    position: fixed; /* bleibt oben sichtbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+
+    background: rgba(30, 22, 18, 0.35); /* warmes Cinematic Glas */
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 200, 150, 0.18);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Leichter Darken-Effekt beim Scrollen */
+.site-header.scrolled {
+    background: rgba(30, 22, 18, 0.55);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.55);
+}
+
+/* INNERES LAYOUT */
+.header-inner {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.8rem 0;
+    min-height: 64px;
+}
+
+/* LOGO */
+.logo img,
+.logo-image {
+    height: 44px;
+    width: auto;
+    filter: drop-shadow(0 0 6px rgba(255, 200, 150, 0.4));
+}
+
+/* NAVIGATION (Desktop) */
+
+.nav ul {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.nav a {
+    color: #ffe7cc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+/* Goldener Cine-Line Hover */
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd49a, #ff9d54);
+    transition: width 0.25s ease;
+    border-radius: 999px;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* MOBILE NAVIGATION (Burger) */
+
+.nav-toggle {
+    display: none;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,200,150,0.2);
+    border-radius: 10px;
+
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    width: 22px;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffe6c9;
+}
+
+/* Mobile Navigation Panel */
+.nav-mobile {
+    display: none;
+    background: rgba(30,22,18,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,200,150,0.25);
+    padding: 1.2rem 0;
+}
+
+.nav-mobile.is-open {
+    display: block;
+}
+
+.nav-mobile li {
+    padding: 0.6rem 1.6rem;
+}
+
+.nav-mobile a {
+    color: #ffe6c9;
+    font-size: 1rem;
+    display: block;
+    position: relative;
+}
+
+.nav-mobile a:hover {
+    color: #ffffff;
+}

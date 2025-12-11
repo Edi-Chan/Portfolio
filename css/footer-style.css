@@ -1,0 +1,57 @@
+/* ============================================
+   FOOTER – CINEMATIC HERO STYLE (Clean)
+============================================ */
+
+.site-footer {
+    width: 100%;
+    padding: 1.4rem 0 1.2rem;
+    margin-top: 4rem;
+
+    background: rgba(30, 22, 18, 0.38);
+    backdrop-filter: blur(14px);
+
+    border-top: 1px solid rgba(255, 200, 150, 0.18);
+    box-shadow: 0 -10px 35px rgba(0,0,0,0.45);
+
+    display: flex;
+    justify-content: center;
+}
+
+.footer-inner {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #ffe7cc;
+    font-size: 0.9rem;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Footer hat EIGENE Logo-Klasse */
+.footer-logo {
+    height: 26px;
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(255,200,150,0.35));
+}
+
+.footer-links a {
+    color: #ffe7cc;
+    opacity: 0.8;
+    transition: opacity .25s ease, color .25s ease;
+    margin-left: 1rem;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+

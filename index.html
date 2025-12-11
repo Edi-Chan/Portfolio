@@ -9,15 +9,21 @@
   <meta name="description"
     content="Dragoi Design – Webdesign & Entwicklung aus Kapfenberg. Moderne, schnelle Webseiten und Web-Apps von Eduard Dragoi." />
   <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/herostyle.css">
+  <link rel="stylesheet" href="css/aboutestyle.css">
+  <link rel="stylesheet" href="css/projects-style.css">
+  <link rel="stylesheet" href="css/skills-style.css">
+  <link rel="stylesheet" href="css/pricing-style.css">
+  <link rel="stylesheet" href="css/contact-style.css">
+  <link rel="stylesheet" href="css/header-style.css">
+  <link rel="stylesheet" href="css/footer-style.css">
 
-<!-- Spezialkram IMMER ganz unten → überschreibt nichts -->
-<link rel="stylesheet" href="css/music-player.css">
-<link rel="stylesheet" href="css/catstyle.css">
+
+  <!-- Spezialkram IMMER ganz unten → überschreibt nichts -->
+  <link rel="stylesheet" href="css/music-player.css">
+  <link rel="stylesheet" href="css/catstyle.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
 
 
@@ -26,16 +32,21 @@
 </head>
 
 <body>
+  <video id="site-bg-video" autoplay muted loop playsinline>
+    <source src="assets/tee.mp4" type="video/mp4">
+  </video>
 
-<div id="intro-intro" class="intro-intro">
-  <video class="intro-video" src="assets/intro.mp4" autoplay muted playsinline></video>
 
-  <div class="logo-burst">
-    <div class="logo-wrapper">
-      <img class="logo-img" src="png/logo-dragoi.png" alt="Logo">
+
+  <div id="intro-intro" class="intro-intro">
+    <video class="intro-video" src="assets/intro.mp4" autoplay muted playsinline></video>
+
+    <div class="logo-burst">
+      <div class="logo-wrapper">
+        <img class="logo-img" src="png/logo-dragoi.png" alt="Logo">
+      </div>
     </div>
   </div>
-</div>
 
 
 
@@ -104,80 +115,59 @@
             <span>💼 Offen für neue Projekte</span>
           </div>
         </div>
-        <div class="hero-card">
-          <div class="hero-avatar">
-            <span class="avatar-initials">ED</span>
-          </div>
-          <div class="hero-card-body">
-            <h2>Dragoi Design – Webdesign & Entwicklung</h2>
-            <p>
-              Ich bin Eduard Dragoi und entwickle unter dem Namen
-              <strong>Dragoi Design</strong> moderne, responsive Webseiten und
-              einfache Web-Anwendungen – mit Fokus auf sauberen Code, gute
-              Performance und klare Kommunikation.
-            </p>
-            <ul class="hero-tech-list">
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>JavaScript</li>
-              <li>Responsive Design</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
 
 
     <!-- Über mich -->
-    <section id="about" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Über mich</h2>
-          <p>Ein kurzer Einblick, wer ich bin und wie ich arbeite.</p>
+    <section id="about" class="about-section">
+      <div class="about-content">
+
+        <h2 class="about-title">Über mich</h2>
+        <p class="about-sub">Ein kurzer Einblick, wer ich bin und wie ich arbeite.</p>
+
+        <div class="about-textbox">
+          <p>
+            Ich bin Eduard Dragoi, Webentwickler aus Kapfenberg (Steiermark). Unter dem
+            Namen <strong>Dragoi Design</strong> erstelle ich moderne, responsive Webseiten
+            und Webanwendungen – von der Idee bis zur fertigen Umsetzung.
+          </p>
+          <p>
+            Ich habe bereits zahlreiche Projekte umgesetzt, von Portfolios bis zu kleinen
+            Business-Seiten. Aktuell baue ich mein Portfolio weiter aus und freue mich
+            über neue Herausforderungen.
+          </p>
         </div>
-        <div class="about-grid">
-          <div>
-            <p>
-              Ich bin Eduard Dragoi, Webentwickler aus Kapfenberg
-              (Steiermark). Unter dem Namen <strong>Dragoi Design</strong>
-              erstelle ich moderne, responsive Webseiten und einfache
-              Web-Anwendungen – von der Idee bis zur fertigen Umsetzung. Mir
-              sind saubere Struktur, gute Performance und eine klare
-              Kommunikation mit Kunden wichtig.
-            </p>
-            <p>
-              Ich habe bereits verschiedene kleine Projekte umgesetzt, z.B.
-              Portfolio-Seiten, einfache Unternehmensseiten und kleine
-              Webtools. Aktuell baue ich mein Portfolio weiter aus und bin
-              offen für neue Projekte.
-            </p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <h3>Standort</h3>
+            <p>Kapfenberg, Steiermark, Österreich</p>
           </div>
-          <div class="about-highlights">
-            <div class="about-card">
-              <h3>Standort</h3>
-              <p>Kapfenberg, Steiermark, Österreich</p>
-            </div>
-            <div class="about-card">
-              <h3>Projekte</h3>
-              <p>Portfolio-Seiten, kleine Business-Webseiten & Webtools</p>
-            </div>
-            <div class="about-card">
-              <h3>Arbeitsweise</h3>
-              <p>Strukturiert, kommunikationsstark, kundenorientiert</p>
-            </div>
-            <div class="about-card">
-              <h3>Offen für</h3>
-              <p>Freelance, Nebenprojekte & Kooperationen</p>
-            </div>
+          <div class="about-card">
+            <h3>Projekte</h3>
+            <p>Business-Webseiten & Webtools</p>
+          </div>
+          <div class="about-card">
+            <h3>Arbeitsweise</h3>
+            <p>Strukturiert & kundenorientiert</p>
+          </div>
+          <div class="about-card">
+            <h3>Offen für</h3>
+            <p>Freelance & Kooperationen</p>
           </div>
         </div>
+
       </div>
     </section>
 
+
+
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <div class="container">
-        <div class="section-header">
+      <div class="projects-inner">
+
+        <div class="projects-header">
           <h2>Ausgewählte Projekte</h2>
           <p>Eine Auswahl meiner Arbeiten.</p>
         </div>
@@ -185,8 +175,7 @@
         <div class="projects-grid">
 
           <!-- Projekt 1 -->
-          <article class="project-card"
-            data-images="png/portfolio-1.png,png/portfolio-2.png,png/portfolio-3.png"
+          <article class="project-card" data-images="png/portfolio-1.png,png/portfolio-2.png,png/portfolio-3.png"
             data-title="Eigene Portfolio-Seite"
             data-desc="Kurze Projektbeschreibung. Hier steht später, was das Projekt kann.">
 
@@ -265,15 +254,19 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
+    <section id="skills" class="section">
+      <div class="skills-inner">
+
+        <!-- Neuer passender Header -->
+        <div class="skills-header">
           <h2>Technologien & Tools</h2>
           <p>Womit ich aktuell arbeite und Websites umsetze.</p>
         </div>
 
+        <!-- Neuer Skills-Grid -->
         <div class="skills-grid">
-          <div class="skills-column">
+
+          <div class="skill-card">
             <h3>Frontend</h3>
             <ul>
               <li>HTML5</li>
@@ -281,7 +274,8 @@
               <li>JavaScript (ES6+)</li>
             </ul>
           </div>
-          <div class="skills-column">
+
+          <div class="skill-card">
             <h3>Layouts</h3>
             <ul>
               <li>Flexbox</li>
@@ -289,7 +283,8 @@
               <li>Responsives Design (Mobile First)</li>
             </ul>
           </div>
-          <div class="skills-column">
+
+          <div class="skill-card">
             <h3>Tools & Sonstiges</h3>
             <ul>
               <li>Git, GitHub</li>
@@ -297,115 +292,82 @@
               <li>Browser DevTools</li>
               <li>Basis-SEO (Struktur, Titel, Beschreibungen)</li>
               <li>Performance-Optimierung (Bilder, Assets)</li>
-              <li>Einfache Deployments (z.B. Netlify / Vercel)</li>
+              <li>Deployments (z.B. Netlify / Vercel)</li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
 
+
     <!-- Preise & Pakete -->
     <section id="pricing" class="section">
-      <div class="container">
-        <div class="section-header">
+      <div class="pricing-inner">
+
+        <div class="pricing-header">
           <h2>Preise & Pakete</h2>
-          <p>
-            Transparente Pakete für unterschiedliche Anforderungen – von der
-            einfachen Onepager-Website bis zur laufend betreuten Lösung.
-          </p>
+          <p>Für jedes Projekt das passende Angebot.</p>
         </div>
 
         <div class="pricing-grid">
-          <!-- Paket 1 -->
-          <article class="pricing-card">
+
+          <div class="pricing-card">
             <div class="pricing-head">
-              <p class="pricing-name">Starter Website</p>
-              <p class="pricing-tagline">
-                Ideal für Portfolio & kleine Projekte
-              </p>
+              <h3 class="pricing-name">Starter</h3>
+              <p class="pricing-tagline">Ideal für kleine Projekte</p>
             </div>
             <div class="pricing-body">
               <p class="pricing-price">
-                ab <span class="pricing-price-number">350&nbsp;€</span>
+                ab <span class="pricing-price-number">€299</span>
               </p>
-              <p class="pricing-subline">Einmaliger Preis</p>
               <ul class="pricing-features">
-                <li>Onepager (1 Seite)</li>
-                <li>Modernes, responsives Design</li>
-                <li>Kontaktformular</li>
-                <li>Impressum & Datenschutz (Basis)</li>
-                <li>Basis-SEO (Titel, Beschreibungen, Struktur)</li>
+                <li>1–2 Unterseiten</li>
+                <li>Responsives Design</li>
+                <li>Basis SEO</li>
               </ul>
-              <p class="pricing-note">
-                Perfekt für einfache Online-Visitenkarten, Landing Pages oder
-                persönliche Portfolios.
-              </p>
             </div>
-          </article>
+          </div>
 
-          <!-- Paket 2 (Highlight) -->
-          <article class="pricing-card pricing-card-highlight">
+          <div class="pricing-card pricing-card-highlight">
             <div class="pricing-head">
-              <p class="pricing-name">Business Website</p>
-              <p class="pricing-tagline">
-                Für Selbstständige & kleine Unternehmen
-              </p>
+              <h3 class="pricing-name">Business</h3>
+              <p class="pricing-tagline">Für wachsende Unternehmen</p>
               <span class="pricing-badge">Beliebt</span>
             </div>
             <div class="pricing-body">
               <p class="pricing-price">
-                ab <span class="pricing-price-number">780&nbsp;€</span>
+                ab <span class="pricing-price-number">€599</span>
               </p>
-              <p class="pricing-subline">Einmaliger Preis</p>
               <ul class="pricing-features">
-                <li>Bis zu 5 Inhaltsseiten</li>
-                <li>Individuelles Design & Struktur</li>
-                <li>Responsiv für Handy, Tablet & Desktop</li>
-                <li>Basis-SEO & Performance-Optimierung</li>
-                <li>Einbindung von Google Maps & Social Links</li>
+                <li>Mehrere Seiten</li>
+                <li>Branding Integration</li>
+                <li>SEO Optimierung</li>
               </ul>
-              <p class="pricing-note">
-                Geeignet für Unternehmen, die professionell auftreten wollen
-                – mit mehr Inhalt und Struktur.
-              </p>
             </div>
-          </article>
+          </div>
 
-          <!-- Paket 3 -->
-          <article class="pricing-card">
+          <div class="pricing-card">
             <div class="pricing-head">
-              <p class="pricing-name">Website + Betreuung</p>
-              <p class="pricing-tagline">„Rundum sorglos“ mit Abo-Modell</p>
+              <h3 class="pricing-name">Premium</h3>
+              <p class="pricing-tagline">Für besondere Anforderungen</p>
             </div>
             <div class="pricing-body">
               <p class="pricing-price">
-                ab <span class="pricing-price-number">980&nbsp;€</span>
-              </p>
-              <p class="pricing-subline">
-                Einmalige Einrichtung + ab <strong>39&nbsp;€ / Monat</strong>
+                ab <span class="pricing-price-number">€999</span>
               </p>
               <ul class="pricing-features">
-                <li>Umfang wie „Business Website“</li>
-                <li>Laufende Updates von Texten & Bildern</li>
-                <li>Kleine Design-Anpassungen inklusive</li>
-                <li>Technische Wartung & Basis-Backups</li>
-                <li>Monitoring & kleinere Fehlerbehebungen</li>
+                <li>Custom Design</li>
+                <li>Webtools / Formulare</li>
+                <li>Extra SEO / Speed</li>
               </ul>
-              <p class="pricing-note">
-                Ideal für Kunden, die ihre Website langfristig aktuell halten
-                möchten, ohne sich selbst darum kümmern zu müssen.
-              </p>
             </div>
-          </article>
-        </div>
+          </div>
 
-        <p class="pricing-hint">
-          Alle Preise sind <strong>ab</strong>-Preise und können je nach
-          Umfang, Funktionswünschen und Inhalt variieren. Gerne erstelle ich
-          ein individuelles Angebot.
-        </p>
+        </div>
       </div>
     </section>
+
 
     <!-- Kontakt -->
     <section id="contact" class="section">
@@ -552,16 +514,20 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-      <div class="container footer-inner">
+      <div class="footer-inner">
+
         <div class="footer-left">
           <img src="png/logo-dragoi.png" alt="Dragoi Design Logo" class="footer-logo" />
           <p>© <span id="year"></span> Dragoi Design – Webdesign</p>
         </div>
-        <p class="footer-links">
+
+        <div class="footer-links">
           <a href="#hero">Nach oben</a>
-        </p>
+        </div>
+
       </div>
     </footer>
+
 
 
     <!-- LIGHTBOX gehört HIERHIN! -->
