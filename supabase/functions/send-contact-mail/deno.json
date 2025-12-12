@@ -1,3 +1,7 @@
 {
-  "imports": {}
+  "supabase": {
+    "functions": {
+      "verify_jwt": false
+    }
+  }
 }

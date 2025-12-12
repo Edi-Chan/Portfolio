@@ -80,10 +80,15 @@ fetch("https://vvqjqfslnhydvpainlrv.supabase.co/functions/v1/send-contact-mail",
     "Authorization": "Bearer sb_publishable_1bKa6jFeVLd4JxrBqjQ4sA_hkVqyuOA"
   },
   body: JSON.stringify({
-    name: data.get("name"),
-    email: data.get("email"),
-    message: data.get("message"),
-  }),
+  name: data.get("name"),
+  email: data.get("email"),
+  phone: data.get("phone"),
+  contactPreference: data.get("contactPreference"),
+  projectType: data.get("projectType"),
+  goal: data.get("goal"),
+  timeline: data.get("timeline"),
+  message: data.get("message"),
+}),
 })
 
 
