@@ -4,6 +4,7 @@
 export function initContactForm() {
   const form = document.querySelector(".contact-form");
   const status = document.querySelector(".form-status");
+  const fileInput = form?.querySelector('input[type="file"]');
 
   if (!form || !status) return;
 
@@ -46,6 +47,43 @@ export function initContactForm() {
     selects.forEach(s => s.classList.remove("open"));
   });
 
+  /* ---------- LIVE FILE VALIDATION ---------- */
+  if (fileInput) {
+    fileInput.addEventListener("change", () => {
+      const files = [...fileInput.files];
+
+      const MAX_FILES = 5;
+      const MAX_SIZE = 5 * 1024 * 1024;
+      const ALLOWED_TYPES = [
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "image/gif",
+        "application/pdf"
+      ];
+
+      if (files.length > MAX_FILES) {
+        setStatus("Maximal 5 Dateien erlaubt.", "#f97373");
+        fileInput.value = "";
+        return;
+      }
+
+      for (const file of files) {
+        if (!ALLOWED_TYPES.includes(file.type)) {
+          setStatus("Nur Bilder oder PDF-Dateien erlaubt.", "#f97373");
+          fileInput.value = "";
+          return;
+        }
+
+        if (file.size > MAX_SIZE) {
+          setStatus("Eine Datei ist größer als 5 MB.", "#f97373");
+          fileInput.value = "";
+          return;
+        }
+      }
+    });
+  }
+
   /* ---------- SUBMIT ---------- */
   form.addEventListener("submit", e => {
     e.preventDefault();
@@ -69,31 +107,51 @@ export function initContactForm() {
 
     if (!data.get("consent")) {
       setStatus("Bitte der Datenschutzerklärung zustimmen.", "#f97373");
-        return;
+      return;
     }
 
-fetch("https://vvqjqfslnhydvpainlrv.supabase.co/functions/v1/send-contact-mail", {
+    /* ---------- FILE VALIDATION (FINAL CHECK) ---------- */
+    const files = data.getAll("files[]").filter(f => f.size > 0);
+
+    const MAX_FILES = 5;
+    const MAX_SIZE = 5 * 1024 * 1024;
+    const ALLOWED_TYPES = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/gif",
+      "application/pdf"
+    ];
+
+    if (files.length > MAX_FILES) {
+      setStatus("Maximal 5 Dateien erlaubt.", "#f97373");
+      return;
+    }
+
+    for (const file of files) {
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        setStatus("Nur Bilder oder PDF-Dateien erlaubt.", "#f97373");
+        return;
+      }
+
+      if (file.size > MAX_SIZE) {
+        setStatus("Eine Datei ist größer als 5 MB.", "#f97373");
+        return;
+      }
+    }
+
+    /* ---------- SEND (noch ohne Files) ---------- */
+    fetch("https://vvqjqfslnhydvpainlrv.supabase.co/functions/v1/send-contact-mail", {
   method: "POST",
   headers: {
-    "Content-Type": "application/json",
-    "apikey": "sb_publishable_1bKa6jFeVLd4JxrBqjQ4sA_hkVqyuOA",
-    "Authorization": "Bearer sb_publishable_1bKa6jFeVLd4JxrBqjQ4sA_hkVqyuOA"
+    "apikey": "sb_publishable_...",
+    "Authorization": "Bearer sb_publishable_..."
   },
-  body: JSON.stringify({
-  name: data.get("name"),
-  email: data.get("email"),
-  phone: data.get("phone"),
-  contactPreference: data.get("contactPreference"),
-  projectType: data.get("projectType"),
-  goal: data.get("goal"),
-  timeline: data.get("timeline"),
-  message: data.get("message"),
-}),
+  body: data
 })
 
-
       .then(() => {
-        setStatus("Danke! Nachricht wurde gesendet.", "#a5b4fc");
+        setStatus("Danke! Nachricht wurde gesendet.", "#1dfc00ff");
         form.reset();
 
         selects.forEach(s => {

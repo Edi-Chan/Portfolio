@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Dragoi Design – Webdesign aus Kapfenberg </title>
+  <title>Dragoi Design — Webdesign & Entwicklung aus Kapfenberg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Dragoi Design – Webdesign & Entwicklung aus Kapfenberg. Moderne, schnelle Webseiten und Web-Apps von Eduard Dragoi." />
@@ -23,7 +23,7 @@
   <!-- Spezialkram IMMER ganz unten → überschreibt nichts -->
   <link rel="stylesheet" href="css/music-player.css">
   <link rel="stylesheet" href="css/catstyle.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
 
 
@@ -33,7 +33,7 @@
 
 <body>
   <video id="site-bg-video" autoplay muted loop playsinline>
-    <source src="assets/start.mp4" type="video/mp4">
+    <source src="assets/tee.mp4" type="video/mp4">
   </video>
 
 
@@ -371,149 +371,160 @@
 
     <!-- Kontakt -->
     <section id="contact" class="section">
-  <div class="contact-inner">
+      <div class="contact-inner">
 
-    <div class="section-header">
-      <h2>Kontakt</h2>
-      <p>
-        Du planst eine neue Website oder einen Relaunch?
-        Beschreib kurz dein Projekt – ich melde mich persönlich zurück.
-      </p>
-    </div>
-
-    <div class="contact-grid">
-
-      <!-- INFO -->
-      <div class="contact-info">
-        <p>
-          Unter dem Namen <strong>Dragoi Design</strong> unterstütze ich
-          Selbstständige und kleine Unternehmen beim Aufbau einer klaren,
-          modernen Online-Präsenz.
-        </p>
-
-        <ul class="contact-list">
-          <li><strong>Ort:</strong> Kapfenberg, Steiermark, Österreich</li>
-          <li><strong>E-Mail:</strong> edi_dragoi@ik.me</li>
-          <li><strong>Telefon:</strong> +43 664 3545517</li>
-        </ul>
-      </div>
-
-      <!-- FORM -->
-      <form class="contact-form" enctype="multipart/form-data">
-
-        <div id="cat-container"></div>
-
-        <!-- Name + Mail -->
-        <div class="form-row">
-          <div class="form-field">
-            <label>Name *</label>
-            <input type="text" name="name" placeholder="Dein Name" required>
-          </div>
-
-          <div class="form-field">
-            <label>E-Mail *</label>
-            <input type="email" name="email" placeholder="deine@email.at" required>
-          </div>
+        <div class="section-header">
+          <h2>Kontakt</h2>
+          <p>
+            Du planst eine neue Website oder einen Relaunch?
+            Beschreib kurz dein Projekt – ich melde mich persönlich zurück.
+          </p>
         </div>
 
-        <!-- Telefon + Kontakt -->
-        <div class="form-row">
-          <div class="form-field">
-            <label>Telefon (optional)</label>
-            <input type="tel" name="phone" placeholder="+43 …">
+        <div class="contact-grid">
+
+          <!-- INFO -->
+          <div class="contact-info">
+            <p>
+              Unter dem Namen <strong>Dragoi Design</strong> unterstütze ich
+              Selbstständige und kleine Unternehmen beim Aufbau einer klaren,
+              modernen Online-Präsenz.
+            </p>
+
+            <ul class="contact-list">
+              <li><strong>Ort:</strong> Kapfenberg, Steiermark, Österreich</li>
+              <li><strong>E-Mail:</strong> edi_dragoi@ik.me</li>
+              <li><strong>Telefon:</strong> +43 664 3545517</li>
+            </ul>
           </div>
 
-          <div class="form-field">
-            <label>Bevorzugte Kontaktart</label>
+          <!-- FORM -->
+          <form class="contact-form" enctype="multipart/form-data">
 
-            <div class="custom-select" data-name="contactPreference">
-              <button type="button" class="select-trigger">Bitte auswählen</button>
-              <ul class="select-options">
-                <li data-value="email">E-Mail</li>
-                <li data-value="telefon">Telefon</li>
-              </ul>
-              <input type="hidden" name="contactPreference">
+            <div id="cat-container"></div>
+
+            <!-- Name + Mail -->
+            <div class="form-row">
+              <div class="form-field">
+                <label>Name *</label>
+                <input type="text" name="name" placeholder="Dein Name" required>
+              </div>
+
+              <div class="form-field">
+                <label>E-Mail *</label>
+                <input type="email" name="email" placeholder="deine@email.at" required>
+              </div>
             </div>
-          </div>
+
+            <!-- Telefon + Kontakt -->
+            <div class="form-row">
+              <div class="form-field">
+                <label>Telefon (optional)</label>
+                <input type="tel" name="phone" placeholder="+43 …">
+              </div>
+
+              <div class="form-field">
+                <label>Bevorzugte Kontaktart</label>
+
+                <div class="custom-select" data-name="contactPreference">
+                  <button type="button" class="select-trigger">Bitte auswählen</button>
+                  <ul class="select-options">
+                    <li data-value="email">E-Mail</li>
+                    <li data-value="telefon">Telefon</li>
+                  </ul>
+                  <input type="hidden" name="contactPreference">
+                </div>
+              </div>
+            </div>
+
+            <!-- Projektart -->
+            <div class="form-field">
+              <label>Projektart *</label>
+
+              <div class="custom-select" data-name="projectType">
+                <button type="button" class="select-trigger">Bitte auswählen</button>
+                <ul class="select-options">
+                  <li data-value="neue-website">Neue Website</li>
+                  <li data-value="relaunch">Relaunch bestehender Website</li>
+                  <li data-value="online-shop">Online-Shop</li>
+                  <li data-value="landingpage">Landingpage</li>
+                  <li data-value="sonstiges">Sonstiges</li>
+                </ul>
+                <input type="hidden" name="projectType" required>
+              </div>
+            </div>
+
+            <!-- Ziel -->
+            <div class="form-field">
+              <label>Ziel der Website *</label>
+
+              <div class="custom-select" data-name="goal">
+                <button type="button" class="select-trigger">Bitte auswählen</button>
+                <ul class="select-options">
+                  <li data-value="anfragen">Anfragen generieren</li>
+                  <li data-value="verkauf">Verkaufen</li>
+                  <li data-value="image">Image & Präsenz</li>
+                  <li data-value="info">Informationen bereitstellen</li>
+                </ul>
+                <input type="hidden" name="goal" required>
+              </div>
+            </div>
+
+            <!-- Zeitraum -->
+            <div class="form-field">
+              <label>Geplanter Start</label>
+
+              <div class="custom-select" data-name="timeline">
+                <button type="button" class="select-trigger">Optional auswählen</button>
+                <ul class="select-options">
+                  <li data-value="sofort">So bald wie möglich</li>
+                  <li data-value="1-monat">In ca. 1 Monat</li>
+                  <li data-value="3-monate">In den nächsten 3 Monaten</li>
+                  <li data-value="flexibel">Flexibel</li>
+                </ul>
+                <input type="hidden" name="timeline">
+              </div>
+            </div>
+
+            <!-- Beschreibung -->
+            <div class="form-field">
+              <label>Projektbeschreibung *</label>
+              <textarea rows="4" name="message" placeholder="Kurz dein Projekt beschreiben …" required></textarea>
+            </div>
+
+            <!-- Upload -->
+            <div class="form-field">
+              <label>Dateien hochladen (optional)</label>
+              <input type="file" name="files[]" multiple accept="image/*,application/pdf" />
+              <small class="form-hint">
+                Erlaubt sind Bilder (JPG, PNG, WebP) und PDF · max. 5 Dateien · je max. 5 MB
+              </small>
+            </div>
+
+
+            <!-- DSGVO -->
+            <div class="form-field form-field-checkbox">
+              <label class="checkbox-label">
+                <input type="checkbox" name="consent" required>
+                <span>Ich stimme der Verarbeitung meiner Angaben gemäß Datenschutzerklärung zu.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Anfrage senden</button>
+
+            <p class="form-status" aria-live="polite"></p>
+            
+            
+            <!-- Honeypot (nicht ausfüllen) -->
+            <div class="hp-field">
+              <label>Website</label>
+              <input type="text" name="website" autocomplete="off">
+            </div>
+
+          </form>
         </div>
-
-        <!-- Projektart -->
-        <div class="form-field">
-          <label>Projektart *</label>
-
-          <div class="custom-select" data-name="projectType">
-            <button type="button" class="select-trigger">Bitte auswählen</button>
-            <ul class="select-options">
-              <li data-value="neue-website">Neue Website</li>
-              <li data-value="relaunch">Relaunch bestehender Website</li>
-              <li data-value="online-shop">Online-Shop</li>
-              <li data-value="landingpage">Landingpage</li>
-              <li data-value="sonstiges">Sonstiges</li>
-            </ul>
-            <input type="hidden" name="projectType" required>
-          </div>
-        </div>
-
-        <!-- Ziel -->
-        <div class="form-field">
-          <label>Ziel der Website *</label>
-
-          <div class="custom-select" data-name="goal">
-            <button type="button" class="select-trigger">Bitte auswählen</button>
-            <ul class="select-options">
-              <li data-value="anfragen">Anfragen generieren</li>
-              <li data-value="verkauf">Verkaufen</li>
-              <li data-value="image">Image & Präsenz</li>
-              <li data-value="info">Informationen bereitstellen</li>
-            </ul>
-            <input type="hidden" name="goal" required>
-          </div>
-        </div>
-
-        <!-- Zeitraum -->
-        <div class="form-field">
-          <label>Geplanter Start</label>
-
-          <div class="custom-select" data-name="timeline">
-            <button type="button" class="select-trigger">Optional auswählen</button>
-            <ul class="select-options">
-              <li data-value="sofort">So bald wie möglich</li>
-              <li data-value="1-monat">In ca. 1 Monat</li>
-              <li data-value="3-monate">In den nächsten 3 Monaten</li>
-              <li data-value="flexibel">Flexibel</li>
-            </ul>
-            <input type="hidden" name="timeline">
-          </div>
-        </div>
-
-        <!-- Beschreibung -->
-        <div class="form-field">
-          <label>Projektbeschreibung *</label>
-          <textarea rows="4" name="message" placeholder="Kurz dein Projekt beschreiben …" required></textarea>
-        </div>
-
-        <!-- Upload -->
-        <div class="form-field">
-          <label>Dateien hochladen (optional)</label>
-          <input type="file" name="files[]" multiple>
-        </div>
-
-        <!-- DSGVO -->
-        <div class="form-field form-field-checkbox">
-          <label class="checkbox-label">
-            <input type="checkbox" name="consent" required>
-            <span>Ich stimme der Verarbeitung meiner Angaben gemäß Datenschutzerklärung zu.</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Anfrage senden</button>
-
-        <p class="form-status" aria-live="polite"></p>
-
-      </form>
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
 
 
 
